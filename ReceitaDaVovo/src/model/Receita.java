@@ -29,8 +29,5 @@ public class Receita {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-    
-    
-    
+    } 
 }
