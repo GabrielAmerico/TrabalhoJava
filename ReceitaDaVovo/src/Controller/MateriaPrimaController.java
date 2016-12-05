@@ -6,11 +6,16 @@ import model.MateriaPrima;
 
 public class MateriaPrimaController {
 
-    public static void adicionar(String nome) {
+    public static boolean adicionar(String nome) {
         int cod;
 
         cod = conexaoList.getMateriaPrima().size() + 1;
-        conexaoList.getMateriaPrima().add(new MateriaPrima(cod, nome));
+        try {
+            conexaoList.getMateriaPrima().add(new MateriaPrima(cod, nome));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
 
     }
 

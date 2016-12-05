@@ -23,7 +23,7 @@ public class MainController {
         do {
             ReceitaView.menu();
             IngredientesMedidaView.menu();
-            MateriaPrimaView.menu();
+            new MateriaPrimaView().menu();
             opc = MainView.menu();
             
 
@@ -65,6 +65,7 @@ public class MainController {
                     break;
 
                 case 12:
+                    new MateriaPrimaView().excluir();
                     break;
             }
         } while (opc != 99);

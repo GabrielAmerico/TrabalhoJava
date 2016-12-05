@@ -2,14 +2,15 @@ package view;
 
 import Controller.MateriaPrimaController;
 import dal.conexaoList;
+import interfaces.PadraoView;
 import java.util.Scanner;
 import model.MateriaPrima;
 
-public class MateriaPrimaView {
+public class MateriaPrimaView implements PadraoView {
 
     private static Scanner scan = new Scanner(System.in);
 
-    public static void menu() {
+    public void menu() {
         System.out.println(" 9 - Adicionar  Materia Prima:");
         System.out.println(" 10 - Ver Todas as Materias Primas:");
         System.out.println(" 11 - Pesquisar Materia Prima:");
@@ -24,16 +25,27 @@ public class MateriaPrimaView {
         System.out.print("Informe o nome da Materia Prima:");
         nomeMateria = scan.nextLine();
 
-        MateriaPrimaController.adicionar(nomeMateria);
+        boolean retorno = MateriaPrimaController.adicionar(nomeMateria);
+
+        if (retorno) {
+            System.out.println("----------------------------------------");
+            System.out.println("Matéria Prima " + nomeMateria + " adicionado com sucesso");
+            System.out.println("----------------------------------------");
+        } else {
+            System.out.println("----------------------------------------");
+            System.out.println("Falha ao adicionar a Matéria Prima");
+            System.out.println("----------------------------------------");
+        }
     }
 
     public void listarTodos() {
         for (MateriaPrima matP : conexaoList.getMateriaPrima()) {
+            System.out.println("");
             System.out.println("----------------------------------------");
             System.out.println("Código: " + matP.getCodigo());
             System.out.println("Nome Materia Prima: " + matP.getNome());
             System.out.println("----------------------------------------");
-            System.out.println("");
+
         }
     }
 
@@ -46,14 +58,16 @@ public class MateriaPrimaView {
         matP = MateriaPrimaController.buscar(nomeMat);
 
         if (matP != null) {
+            System.out.println("----------------------------------------");
             System.out.println("Código: " + matP.getCodigo());
             System.out.println("Nome Materia Prima: " + matP.getNome());
             System.out.println("----------------------------------------");
-            System.out.println("");
+           
         } else {
+            System.out.println("----------------------------------------");
             System.out.println("Matéria Prima não encontrada!");
             System.out.println("----------------------------------------");
-            System.out.println("");
+            
         }
     }
 
@@ -68,7 +82,7 @@ public class MateriaPrimaView {
         return nomeMat;
     }
 
-    public void excliur() {
+    public void excluir() {
         String nomeMat;
         boolean retorno;
 
@@ -76,9 +90,14 @@ public class MateriaPrimaView {
 
         retorno = MateriaPrimaController.excluir(nomeMat);
         if (retorno) {
+            System.out.println("----------------------------------------");
             System.out.println("Materia Prima excluida com sucesso");
+            System.out.println("----------------------------------------");
+
         } else {
+            System.out.println("----------------------------------------");
             System.out.println("Materia Prima não encontrada");
+            System.out.println("----------------------------------------");
         }
     }
 }

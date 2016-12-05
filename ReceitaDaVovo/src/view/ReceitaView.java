@@ -3,6 +3,8 @@ package view;
 public class ReceitaView {
     
     public static void menu(){
+        System.out.println("");
+        System.out.println("");
         System.out.println(" 1 - Adicionar  Receitas:");
         System.out.println(" 2 - Ver Todas as receitas:");
         System.out.println(" 3 - Pesquisar Receita:");
