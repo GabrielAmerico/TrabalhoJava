@@ -6,6 +6,13 @@ public class IngredienteMedida {
     private String tipoDeMedida;
     private float quantidade;
 
+    public IngredienteMedida(int cod, MateriaPrima materia, String medida, float quantidade){
+        this.setCodigo(cod);
+        this.setIngrediente(materia);
+        this.setTipoDeMedida(medida);
+        this.setQuantidade(quantidade);
+    }
+    
     public int getCodigo() {
         return codigo;
     }
