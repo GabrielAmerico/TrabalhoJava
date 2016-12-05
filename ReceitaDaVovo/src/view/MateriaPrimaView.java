@@ -1,6 +1,9 @@
 package view;
 
+import Controller.MateriaPrimaController;
+import dal.conexaoList;
 import java.util.Scanner;
+import model.MateriaPrima;
 
 public class MateriaPrimaView {
 
@@ -14,14 +17,68 @@ public class MateriaPrimaView {
         System.out.println("");
     }
 
-    public void adicionar() {        
+    public void adicionar() {
         String nomeMateria;
         System.out.println("Cadastrando Materia Prima ...");
         System.out.println("");
         System.out.print("Informe o nome da Materia Prima:");
         nomeMateria = scan.nextLine();
-        
-        new MateriaPrimaView().adicionar();
+
+        MateriaPrimaController.adicionar(nomeMateria);
     }
 
+    public void listarTodos() {
+        for (MateriaPrima matP : conexaoList.getMateriaPrima()) {
+            System.out.println("----------------------------------------");
+            System.out.println("Código: " + matP.getCodigo());
+            System.out.println("Nome Materia Prima: " + matP.getNome());
+            System.out.println("----------------------------------------");
+            System.out.println("");
+        }
+    }
+
+    public void buscar() {
+        String nomeMat;
+        MateriaPrima matP;
+
+        nomeMat = buscarNome();
+
+        matP = MateriaPrimaController.buscar(nomeMat);
+
+        if (matP != null) {
+            System.out.println("Código: " + matP.getCodigo());
+            System.out.println("Nome Materia Prima: " + matP.getNome());
+            System.out.println("----------------------------------------");
+            System.out.println("");
+        } else {
+            System.out.println("Matéria Prima não encontrada!");
+            System.out.println("----------------------------------------");
+            System.out.println("");
+        }
+    }
+
+    public String buscarNome() {
+        String nomeMat;
+
+        System.out.println("Buscando...");
+        System.out.println("");
+        System.out.print("Informe o nome da Matéria Prima:");
+        nomeMat = scan.nextLine();
+
+        return nomeMat;
+    }
+
+    public void excliur() {
+        String nomeMat;
+        boolean retorno;
+
+        nomeMat = buscarNome();
+
+        retorno = MateriaPrimaController.excluir(nomeMat);
+        if (retorno) {
+            System.out.println("Materia Prima excluida com sucesso");
+        } else {
+            System.out.println("Materia Prima não encontrada");
+        }
+    }
 }

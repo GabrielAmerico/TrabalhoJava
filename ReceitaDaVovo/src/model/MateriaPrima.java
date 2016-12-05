@@ -20,5 +20,12 @@ public class MateriaPrima {
         this.nome = nome;
     }
     
+    public MateriaPrima(int cod, String nome){
+        this.setCodigo(cod);
+        this.setNome(nome);
+    }
     
+    public MateriaPrima(){
+        
+    }
 }

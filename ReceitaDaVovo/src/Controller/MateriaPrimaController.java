@@ -1,31 +1,40 @@
 package Controller;
 
-public class MateriaPrimaController implements interfaces.ControllerInterface{
+import dal.conexaoList;
+import javax.swing.JOptionPane;
+import model.MateriaPrima;
 
-    public MateriaPrimaController(){}
-    
-    public MateriaPrimaController(String nome){
-        
-    }
-    
-    @Override
-    public void adicionar() {
-        
-    }
+public class MateriaPrimaController {
 
-    @Override
-    public void listar() {
+    public static void adicionar(String nome) {
+        int cod;
+
+        cod = conexaoList.getMateriaPrima().size() + 1;
+        conexaoList.getMateriaPrima().add(new MateriaPrima(cod, nome));
 
     }
 
-    @Override
-    public void buscar() {
+    public static MateriaPrima buscar(String nome) {
+        for (MateriaPrima matP : conexaoList.getMateriaPrima()) {
+            if (matP.getNome().equalsIgnoreCase(nome)) {
+                return matP;
+            }
+        }
+        return null;
+    }
+
+    public static boolean excluir(String nome) {
+        MateriaPrima matP;
+
+        matP = buscar(nome);
+
+        if (matP != null) {
+            conexaoList.getMateriaPrima().remove(matP);
+            return true;
+        } else {
+            return false;
+        }
 
     }
 
-    @Override
-    public void excluir() {
-
-    }
-    
 }
