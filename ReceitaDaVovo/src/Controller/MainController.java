@@ -22,7 +22,7 @@ public class MainController {
         
         do {
             new ReceitaView().menu();
-            IngredientesMedidaView.menu();
+            new IngredientesMedidaView().menu();
             new MateriaPrimaView().menu();
             opc = MainView.menu();
             
