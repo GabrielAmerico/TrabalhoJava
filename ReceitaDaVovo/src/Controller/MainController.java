@@ -21,7 +21,7 @@ public class MainController {
         int opc;
         
         do {
-            ReceitaView.menu();
+            new ReceitaView().menu();
             IngredientesMedidaView.menu();
             new MateriaPrimaView().menu();
             opc = MainView.menu();

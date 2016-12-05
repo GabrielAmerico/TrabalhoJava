@@ -1,8 +1,12 @@
 package view;
 
-public class ReceitaView {
-    
-    public static void menu(){
+import dal.conexaoList;
+import interfaces.PadraoView;
+import model.Receita;
+
+public class ReceitaView implements PadraoView {
+
+    public void menu() {
         System.out.println("");
         System.out.println("");
         System.out.println(" 1 - Adicionar  Receitas:");
@@ -11,5 +15,36 @@ public class ReceitaView {
         System.out.println(" 4 - Excluir receita");
         System.out.println("");
     }
-    
+
+    @Override
+    public void adicionar() {
+
+    }
+
+    @Override
+    public void listarTodos() {
+        for (Receita r : conexaoList.getReceitas()) {
+            System.out.println("");
+            System.out.println("----------------------------------------");
+            System.out.println("Código: "); 
+            System.out.println("Nome Materia Prima: " );
+            System.out.println("----------------------------------------");
+        }
+    }
+
+    @Override
+    public void buscar() {
+
+    }
+
+    @Override
+    public String buscarNome() {
+        return "";
+    }
+
+    @Override
+    public void excluir() {
+
+    }
+
 }

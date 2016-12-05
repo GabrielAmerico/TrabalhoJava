@@ -10,7 +10,7 @@ public class conexaoList {
 
     private static List<MateriaPrima> materiaPrima;
     private static List<IngredienteMedida> ingredientes;
-    private static List<Receita> receita;
+    private static List<Receita> receitas;
 
     public static List<MateriaPrima> getMateriaPrima() {
         return materiaPrima;
@@ -20,12 +20,12 @@ public class conexaoList {
         return ingredientes;
     }
 
-    public static List<Receita> getReceita() {
-        return receita;
+    public static List<Receita> getReceitas() {
+        return receitas;
     }
 
     public static void getConection() {
-        receita = new ArrayList<Receita>();
+        receitas = new ArrayList<Receita>();
         materiaPrima = new ArrayList<MateriaPrima>();
         ingredientes = new ArrayList<IngredienteMedida>();
     }

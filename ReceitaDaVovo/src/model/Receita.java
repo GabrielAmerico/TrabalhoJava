@@ -6,6 +6,7 @@ public class Receita {
     private int codigo;
     private List<IngredienteMedida> ingredientes;
     private String nome;
+    private String modoPrepraro;
 
     public int getCodigo() {
         return codigo;
