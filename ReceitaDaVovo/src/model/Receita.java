@@ -1,12 +1,30 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Receita {
     private int codigo;
-    private List<IngredienteMedida> ingredientes;
+    private List<MateriaPrima> ingredientes;
     private String nome;
     private String modoPrepraro;
+    
+    public Receita(int cod, ArrayList<MateriaPrima> ingredientes, String nome, String preparo){
+        this.ingredientes = new ArrayList<MateriaPrima>();
+        
+        this.setCodigo(codigo);
+        this.setIngredientes(ingredientes);
+        this.setNome(nome);
+        this.setModoPrepraro(modoPrepraro);
+    }
+
+    public String getModoPrepraro() {
+        return modoPrepraro;
+    }
+
+    public void setModoPrepraro(String modoPrepraro) {
+        this.modoPrepraro = modoPrepraro;
+    }
 
     public int getCodigo() {
         return codigo;
@@ -16,11 +34,11 @@ public class Receita {
         this.codigo = codigo;
     }
 
-    public List<IngredienteMedida> getIngredientes() {
+    public List<MateriaPrima> getIngredientes() {
         return ingredientes;
     }
 
-    public void setIngredientes(List<IngredienteMedida> ingredientes) {
+    public void setIngredientes(List<MateriaPrima> ingredientes) {
         this.ingredientes = ingredientes;
     }
 

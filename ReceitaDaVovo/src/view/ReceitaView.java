@@ -25,9 +25,14 @@ public class ReceitaView implements PadraoView {
     public void listarTodos() {
         for (Receita r : conexaoList.getReceitas()) {
             System.out.println("");
+            System.out.println("");
             System.out.println("----------------------------------------");
-            System.out.println("Código: "); 
-            System.out.println("Nome Materia Prima: " );
+            System.out.println("Código: " + r.getCodigo());
+            System.out.println("Nome da Receita: " + r.getNome());
+            /*for (IngredienteMedida ing : r.getIngredientes()) {
+                System.out.println("Ingrediente: " + ing.getIngrediente().getNome() + "-- Quantidade: " + ing.getQuantidade() + " " + ing.getTipoDeMedida());
+            }*/
+            System.out.println("Modo de Preparo: " + r.getModoPrepraro());
             System.out.println("----------------------------------------");
         }
     }

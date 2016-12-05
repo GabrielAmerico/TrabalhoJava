@@ -11,10 +11,10 @@ public class MateriaPrimaView implements PadraoView {
     private static Scanner scan = new Scanner(System.in);
 
     public void menu() {
-        System.out.println(" 9 - Adicionar  Materia Prima:");
-        System.out.println(" 10 - Ver Todas as Materias Primas:");
-        System.out.println(" 11 - Pesquisar Materia Prima:");
-        System.out.println(" 12 - Excluir Materia Prima:");
+        System.out.println(" 5 - Adicionar  Materia Prima:");
+        System.out.println(" 6 - Ver Todas as Materias Primas:");
+        System.out.println(" 7 - Pesquisar Materia Prima:");
+        System.out.println(" 8 - Excluir Materia Prima:");
         System.out.println("");
     }
 
