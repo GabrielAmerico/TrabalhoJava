@@ -9,7 +9,7 @@ public class Receita {
     private String nome;
     private String modoPrepraro;
     
-    public Receita(int cod, ArrayList<MateriaPrima> ingredientes, String nome, String preparo){
+    public Receita(int cod, ArrayList<String> ingredientes, String nome, String preparo){
         this.ingredientes = new ArrayList<MateriaPrima>();
         
         this.setCodigo(codigo);
