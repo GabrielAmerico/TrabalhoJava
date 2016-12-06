@@ -8,7 +8,7 @@ import view.MainView;
 import view.MateriaPrimaView;
 import view.ReceitaView;
 
-public class MainController {
+public class MainController { 
 
     public static void main(String[] args) {
         conexaoList.getConection();
