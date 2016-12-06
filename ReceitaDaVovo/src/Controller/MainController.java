@@ -27,15 +27,19 @@ public class MainController {
 
             switch (opc) {
                 case 1:
+                    new ReceitaView().adicionar();
                     break;
 
                 case 2:
+                    new ReceitaView().listarTodos();
                     break;
 
                 case 3:
+                    new ReceitaView().buscar();
                     break;
 
                 case 4:
+                    new ReceitaView().excluir();
                     break;
 
                 case 5:
@@ -82,22 +86,79 @@ public class MainController {
         leite.setNome("Leite");
         leite.setCodigo(5);
         conexaoList.getMateriaPrima().add(leite);
+
+        MateriaPrima fuba = new MateriaPrima();
+        fuba.setNome("Fuba");
+        fuba.setCodigo(6);
+        conexaoList.getMateriaPrima().add(fuba);
+
+        MateriaPrima cenoura = new MateriaPrima();
+        cenoura.setNome("Cenoura");
+        cenoura.setCodigo(6);
+        conexaoList.getMateriaPrima().add(cenoura);
+
+        MateriaPrima acucar = new MateriaPrima();
+        acucar.setNome("Açucar");
+        acucar.setCodigo(6);
+        conexaoList.getMateriaPrima().add(acucar);
     }
 
     private static void motorReceita() {
-        ArrayList<MateriaPrima> ingredientes = null;
+        try{
+        for (int i = 0; i < 1; i++) {
+            ArrayList<String> ingredientes = new ArrayList<>();
+            ingredientes.add(motorCriarClasseReceita("leite", "copo", 3.5));
+            ingredientes.add(motorCriarClasseReceita("trigo", "gramas", 400));
+            ingredientes.add(motorCriarClasseReceita("ovo", "unidade", 3));
+            ingredientes.add(motorCriarClasseReceita("oleo", "copo", 0.5));
 
-        Receita r = new Receita(1, ingredientes, "Bolo de Fuba", "dklajsdlaksjfkalsf");
-        conexaoList.getReceitas().add(r);
+            Receita r = new Receita(ingredientes, "Bolo de Fuba", "1ajlskdjasnaiovonasoiansdjhascbasvnoiashb");
+            conexaoList.getReceitas().add(r);
+        }
 
-        Receita r1 = new Receita(1, ingredientes, "Bolo de cenoura", "dklajsdlaksjfkalsf");
-        conexaoList.getReceitas().add(r1);
+        ///////////////////////////////////////////////////////////////////////
+        for (int i = 0; i < 1; i++) {
+            ArrayList<String> ingredientes = new ArrayList<>();
+            ingredientes.add(motorCriarClasseReceita("leite", "copo", 2));
+            ingredientes.add(motorCriarClasseReceita("trigo", "Kilograma", 1));
+            ingredientes.add(motorCriarClasseReceita("ovo", "unidade", 5));
+            ingredientes.add(motorCriarClasseReceita("oleo", "copo", 0.5));
+            ingredientes.add(motorCriarClasseReceita("cenoura", "unidade", 4));
 
-        Receita r2 = new Receita(1, ingredientes, "Lasanha", "dklajsdlaksjfkalsf");
-        conexaoList.getReceitas().add(r2);
+            Receita r1 = new Receita(ingredientes, "Bolo de Cenoura", "2ajlskdjadasgasvasaasnaiovonasoiansdjhascbasvnoiashb");
+            conexaoList.getReceitas().add(r1);
+        }
 
-        Receita r3 = new Receita(1, ingredientes, "Pudim", "dklajsdlaksjfkalsf");
-        conexaoList.getReceitas().add(r3);
+        ///////////////////////////////////////////////////////////////////////
+        for (int i = 0; i < 1; i++) {
+            ArrayList<String> ingredientes = new ArrayList<>();
+            ingredientes.add(motorCriarClasseReceita("leite", "copo", 3.5));
+            ingredientes.add(motorCriarClasseReceita("trigo", "gramas", 400));
+            ingredientes.add(motorCriarClasseReceita("ovo", "unidade", 3));
+            ingredientes.add(motorCriarClasseReceita("oleo", "copo", 0.5));
+            ingredientes.add(motorCriarClasseReceita("açucar", "copo", 0.5));
+
+            Receita r2 = new Receita(ingredientes, "Bolo de Louco", "3ajlskdjasnaiovonasoiansdjhascbasvnoiashb");
+            conexaoList.getReceitas().add(r2);
+        }
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+
     }
 
+    private static String motorCriarClasseReceita(String ing, String medida, double quantidade) {
+        String materia = null;
+
+        try {
+            for (MateriaPrima mp : conexaoList.getMateriaPrima()) {
+                if (mp.getNome().equalsIgnoreCase(ing)) {
+                    materia = mp.getNome() + " " + quantidade + " " + medida;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return materia;
+    }
 }

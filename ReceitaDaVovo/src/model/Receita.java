@@ -1,21 +1,24 @@
 package model;
 
+import dal.conexaoList;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Receita {
+
     private int codigo;
-    private List<MateriaPrima> ingredientes;
+    private List<String> ingredientes;
     private String nome;
     private String modoPrepraro;
-    
-    public Receita(int cod, ArrayList<MateriaPrima> ingredientes, String nome, String preparo){
-        this.ingredientes = new ArrayList<MateriaPrima>();
+
+    public Receita(ArrayList<String> ingredientes, String nome, String preparo) {
+        this.ingredientes = new ArrayList<String>();
+        int cod = conexaoList.getReceitas().size() + 1;
         
-        this.setCodigo(codigo);
+        this.setCodigo(cod);
         this.setIngredientes(ingredientes);
         this.setNome(nome);
-        this.setModoPrepraro(modoPrepraro);
+        this.setModoPrepraro(preparo);
     }
 
     public String getModoPrepraro() {
@@ -34,11 +37,11 @@ public class Receita {
         this.codigo = codigo;
     }
 
-    public List<MateriaPrima> getIngredientes() {
+    public List<String> getIngredientes() {
         return ingredientes;
     }
 
-    public void setIngredientes(List<MateriaPrima> ingredientes) {
+    public void setIngredientes(List<String> ingredientes) {
         this.ingredientes = ingredientes;
     }
 
@@ -48,5 +51,5 @@ public class Receita {
 
     public void setNome(String nome) {
         this.nome = nome;
-    } 
+    }
 }

@@ -1,7 +1,6 @@
 package Controller;
 
 import dal.conexaoList;
-import javax.swing.JOptionPane;
 import model.MateriaPrima;
 
 public class MateriaPrimaController {
