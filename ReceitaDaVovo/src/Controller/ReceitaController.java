@@ -7,8 +7,6 @@ import model.Receita;
 public class ReceitaController extends Heranca.ControllerHeranca {
 
     public static boolean adicionar(ArrayList<String> nomeMateria, String nomeReceita, String preparo) {
-
-        
         try {
             conexaoList.getReceitas().add(new Receita(nomeMateria, nomeReceita, preparo));
             return true;

@@ -5,12 +5,14 @@ import dal.conexaoList;
 import interfaces.PadraoView;
 import java.util.ArrayList;
 import java.util.Scanner;
+import model.MateriaPrima;
 import model.Receita;
 
 public class ReceitaView implements PadraoView {
 
     private static Scanner scan = new Scanner(System.in);
 
+    @Override
     public void menu() {
         System.out.println("");
         System.out.println("");
@@ -106,7 +108,7 @@ public class ReceitaView implements PadraoView {
         System.out.println("Cadastrando Receita ...");
 
         System.out.println("");
-        System.out.print("Informe o nome da Receita:");
+        System.out.print("Informe o nome da Receita: ");
         nomeReceita = scan.nextLine();
         System.out.println("");
 
@@ -115,12 +117,12 @@ public class ReceitaView implements PadraoView {
             mp = new MateriaPrimaView().buscarNome();
             if (mp != null) {
                 System.out.println("");
-                System.out.print("Informe a unidade de medida...");
+                System.out.print("Informe a unidade de medida: ");
                 nomeMedida = scan.nextLine();
                 System.out.println("");
 
                 System.out.println("");
-                System.out.print("Informe a quantidade relativa da medida...");
+                System.out.print("Informe a quantidade relativa da medida: ");
                 quantidade = scan.nextInt();
                 System.out.println("");
                 scan.nextLine();
@@ -135,21 +137,20 @@ public class ReceitaView implements PadraoView {
         } while (rep != 0);
 
         System.out.println("");
-        System.out.print("Descreva o modo de preparo...");
-        System.out.println("");
+        System.out.print("Descreva o modo de preparo: ");
         preparo = scan.nextLine();
+        System.out.println("");
 
         boolean retorno = ReceitaController.adicionar(nomeMateria, nomeReceita, preparo);
 
         if (retorno) {
-            System.out.println("----------------------------------------");
+            System.out.println("----------------------------------------------------");
             System.out.println("Receita " + nomeReceita + " adicionado com sucesso");
-            System.out.println("----------------------------------------");
+            System.out.println("----------------------------------------------------");
         } else {
-            System.out.println("----------------------------------------");
+            System.out.println("----------------------------------------------------");
             System.out.println("Falha ao adicionar a Receita");
-            System.out.println("----------------------------------------");
+            System.out.println("----------------------------------------------------");
         }
     }
-
 }
