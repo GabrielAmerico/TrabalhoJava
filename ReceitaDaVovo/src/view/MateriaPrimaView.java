@@ -74,7 +74,6 @@ public class MateriaPrimaView implements PadraoView {
     public String buscarNome() {
         String nomeMat;
 
-        System.out.println("Buscando...");
         System.out.println("");
         System.out.print("Informe o nome da Matéria Prima:");
         nomeMat = scan.nextLine();

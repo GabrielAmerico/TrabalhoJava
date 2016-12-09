@@ -57,6 +57,10 @@ public class MainController {
                 case 8:
                     new MateriaPrimaView().excluir();
                     break;
+                    
+                default:
+                    new MainView().mensagem();
+                    
             }
         } while (opc != 99);
     }

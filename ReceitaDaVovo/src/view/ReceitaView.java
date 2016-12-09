@@ -123,17 +123,32 @@ public class ReceitaView implements PadraoView {
 
                 System.out.println("");
                 System.out.print("Informe a quantidade relativa da medida: ");
-                quantidade = scan.nextInt();
-                System.out.println("");
-                scan.nextLine();
+                try {
+                    quantidade = scan.nextInt();
+                    System.out.println("");
+                    scan.nextLine();
 
-                nomeMateria.add(mp + " " + quantidade + " " + nomeMedida);
+                    nomeMateria.add(mp + " " + quantidade + " " + nomeMedida);
+                } catch (Exception e) {
+                    scan.nextLine();
+                    System.out.println("Informe um valor numérico de medida! (se for com casas decimais utilize o (PONTO) no lugar de (VIRGULA) ou (BARRA))");
+                    System.out.println("");
+                    System.out.println("Falha ao adicionar o Ingrediente!");
+                    System.out.println("");
+                }
+
             } else {
                 System.out.println("Materia Prima Não Encontrada!");
             }
-            System.out.println("Deseja adicionar outra materia prima?...   1= Sim / 0= Não");
-            rep = scan.nextInt();
-            scan.nextLine();
+            try {
+                System.out.println("Deseja adicionar outra materia prima?...   1= Sim / 0= Não");
+                rep = scan.nextInt();
+                scan.nextLine();
+            } catch (Exception e) {
+                System.out.println("Informe apenas números!");
+                rep = 1;
+            }
+
         } while (rep != 0);
 
         System.out.println("");

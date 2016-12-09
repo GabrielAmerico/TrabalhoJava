@@ -27,4 +27,10 @@ public class MainView {
         return opc;
 
     }
+    
+    public void mensagem(){
+        System.out.println("-----------------------------");
+        System.out.println("Opção Inválida!");
+        System.out.println("-----------------------------");
+    }
 }

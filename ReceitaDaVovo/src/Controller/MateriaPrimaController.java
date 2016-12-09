@@ -8,8 +8,9 @@ public class MateriaPrimaController {
     public static boolean adicionar(String nome) {
         int cod;
 
-        cod = conexaoList.getMateriaPrima().size() + 1;
+        
         try {
+            cod = conexaoList.getMateriaPrima().size() + 1;
             conexaoList.getMateriaPrima().add(new MateriaPrima(cod, nome));
             return true;
         } catch (Exception e) {
